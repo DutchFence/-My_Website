@@ -3,14 +3,10 @@
 <section id="main-page-welcome">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 d-flex justify-content-center">
-        <div class=" py-2 mt-4 border-top border-dark">
-          <h1>Dutch Fence</h1>
-        </div>
-      </div>
-      <div class="col-12 px-0 ">
 
-        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="col-12">
+
+        <div id="carouselExampleCaptions" class=" mw50 d-flex align-items-center carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -39,16 +35,44 @@
         </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+  </div>
+  <div class="col-12 border-seperator mb-3">
   </div>
       </div>
     </div>
+</section>
+
+<section id="main-page-latest-updates">
+<div class="container-fluid">
+
+<% text.forEach((x, index) => { %>
+<div class="col-lg-7 col-sm-11 d-flex justify-content-center ">
+  <div class="row">
+
+
+  <div class="col-6">
+    <img src=<%= pictures[index] %> alt="">
+
+  </div>
+<div class="col-6">
+  <div class="">
+  <h2><%= titles[index]%></h2>
+</div>
+<div class="texttt">
+  <p><%= x  %></p>
+</div>
+
+</div>
+<div class=" border-seperator ">
+</div>
+  </div>
+
+</div>
+<% } ); %>
+
+
+</div>
+
+
 </section>
 <%- include("partials/footer.ejs") %>

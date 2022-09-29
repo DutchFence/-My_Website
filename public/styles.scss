@@ -2,15 +2,47 @@
 $navBarColor: #3D8361;
 $bodyWhite: #f2f2f2;
 $brandFont: 'EB Garamond', serif;
-$elementHeight: 16rem;
+$elementHeight: 32rem;
 $elementWidth: 70%;
 
+$elementHeights: (
+"1": 8rem,
+"2": 4rem,
+"3": 2rem,
+"4": 1rem,
+"5": 0.5rem
+);
+
 // Global styles
+footer{
+background: #d9d9d9;
+}
 body{
   background-color: $bodyWhite;
+  text-align: center;
+
 }
 nav{
+  .navbar-brand{
+    font-family: $brandFont;
+    font-weight: 600;
+    font-size: 1.5rem;
+
+  }
   background-color: $navBarColor;
+}
+
+// Custom classes
+@each $name, $glyph in $elementHeights{
+.marg#{$name}{
+  margin: $glyph 0;
+}
+}
+.border-seperator{
+  padding-top: 2rem;
+  border-bottom: 0.5px solid #d9d9d9;
+
+
 }
 
 // Main page
@@ -19,28 +51,48 @@ nav{
 #main-page-welcome{
     h1{
       font-family: $brandFont;
+      font-weight: 500;
       font-size: 3rem;
     }
-    .carousel-item{
-      height: $elementHeight;
-      background: black;
-      position:relative;
-    }
-    .container{
-      text-align: center;
-      position:absolute;
-      left: 0;
-      right: 0;
-      bottom:0;
-    }
+.carousel-item{
+  background-color: black;
+  width: 55%;
+position: relative;
+left: 22.5%;
+margin-top: 4rem;
+}
     img{
-      position: absolute;
-      background-position: center;
-      background-size:cover;
       opacity:0.5;
+      height: $elementHeight;
     }
+      background: linear-gradient(to bottom left, #d9d9d9 50%, $bodyWhite 50%);
 }
 
 #main-page-latest-updates{
-  
+  .container-fluid{
+    padding-left: 15rem;
+  }
+  .row{
+    height: 45vh;
+    margin-bottom: 4rem;
+
+  }
+.col-6{
+  height: inherit;
+  overflow: hidden;
+}
+
+img{
+  width:100%;
+  height: inherit;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 5px;
+  object-fit: cover;
+
+}
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+text-align: justify;
 }
