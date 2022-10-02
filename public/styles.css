@@ -52,13 +52,16 @@ nav .navbar-brand {
 #main-page-welcome .carousel-item {
   background-color: black;
   width: 55%;
+  height: 80vh;
   position: relative;
   left: 22.5%;
   margin-top: 4rem;
 }
 #main-page-welcome img {
   opacity: 0.5;
-  height: 32rem;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: fill-available;
 }
 
 #main-page-latest-updates {
@@ -67,17 +70,8 @@ nav .navbar-brand {
 #main-page-latest-updates .container-fluid {
   padding-left: 15rem;
 }
-#main-page-latest-updates .row {
-  height: 45vh;
-  margin-bottom: 4rem;
-}
-#main-page-latest-updates .col-6 {
-  height: inherit;
-  overflow: hidden;
-}
 #main-page-latest-updates img {
   width: 100%;
-  height: inherit;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   padding: 5px;

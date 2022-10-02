@@ -54,37 +54,34 @@ nav{
       font-weight: 500;
       font-size: 3rem;
     }
+
+
 .carousel-item{
   background-color: black;
   width: 55%;
+  height: 80vh;
 position: relative;
 left: 22.5%;
 margin-top: 4rem;
 }
     img{
       opacity:0.5;
-      height: $elementHeight;
+      height: -webkit-fill-available;
+      height: -moz-available;
+      height: fill-available
     }
       background: linear-gradient(to bottom left, #d9d9d9 50%, $bodyWhite 50%);
+
 }
 
 #main-page-latest-updates{
   .container-fluid{
     padding-left: 15rem;
   }
-  .row{
-    height: 45vh;
-    margin-bottom: 4rem;
 
-  }
-.col-6{
-  height: inherit;
-  overflow: hidden;
-}
 
 img{
   width:100%;
-  height: inherit;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   padding: 5px;
@@ -95,4 +92,5 @@ img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 text-align: justify;
+
 }
