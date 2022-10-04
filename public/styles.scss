@@ -78,8 +78,22 @@ margin-top: 4rem;
   .container-fluid{
     padding-left: 15rem;
   }
+.tag{
+  color: grey;
+}
+a{
+text-decoration: none;
+color:white;
+}
 
-
+.readMore{
+  background-color: black;
+  width:25%;
+  height:2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 img{
   width:100%;
   border: 1px solid #d9d9d9;
@@ -91,6 +105,6 @@ img{
 img:hover {
   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
-text-align: justify;
+text-align: left;
 
 }

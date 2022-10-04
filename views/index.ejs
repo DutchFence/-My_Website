@@ -55,10 +55,20 @@
   </div>
 <div class="col-md-6">
   <div class="">
+    <p class="tag"><%= tags[index]%></p>
   <h2><%= titles[index]%></h2>
+  <p>
+  <i class="fa-solid fa-pen"></i> <b> <%=dates[index]%></b>
+  <%  if (tags[index]=="Hiking")  { %>
+<i class=" ps-4 fa-solid fa-location-dot"></i> <b>     <%=locations[index]%></b>
+  <%  } %>
+
 </div>
 <div class="texttt">
   <p><%= x  %></p>
+</div>
+<div class="readMore">
+<a href="/upload">Read more</a>
 </div>
 
 </div>

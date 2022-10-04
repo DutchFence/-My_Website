@@ -65,10 +65,25 @@ nav .navbar-brand {
 }
 
 #main-page-latest-updates {
-  text-align: justify;
+  text-align: left;
 }
 #main-page-latest-updates .container-fluid {
   padding-left: 15rem;
+}
+#main-page-latest-updates .tag {
+  color: grey;
+}
+#main-page-latest-updates a {
+  text-decoration: none;
+  color: white;
+}
+#main-page-latest-updates .readMore {
+  background-color: black;
+  width: 25%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 #main-page-latest-updates img {
   width: 100%;
