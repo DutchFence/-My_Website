@@ -29,22 +29,21 @@ const articleSchema = new mongoose.Schema({
   comments: [commentSchema],
   location: {type: String, default: ""}
 });
-const titles=[
-]
-const locations=[];
-const tags=[];
-const descriptionsRaw=[]
-const pictures =[];
+let titles=[];
+ let locations =[];
+ let tags=[];
+ let descriptionsRaw=[];
+ let pictures =[];
 let descriptions =[];
-const articles =[];
-const dates =[];
-const Article = mongoose.model("Article", articleSchema);
+let articles =[];
+let dates =[];
+let Article = mongoose.model("Article", articleSchema);
 
  Article.find((err, blogPosts)=>{
   if (err){
     console.log(err);
   } else {
-
+//SECURITY We dont use the object as it can be a security threat when unauthorized people enter scripts in the data SECURITY
  blogPosts.forEach((blog)=>{
    titles.unshift(blog.title),
    descriptionsRaw.unshift(blog.description),
@@ -68,6 +67,7 @@ descriptions = descriptionsRaw.map(x => _.truncate(x, {
 const blogPosts = ''
 
 app.get("/", (req,res)=>{
+  console.log(fullDataObject);
   res.render("index", {
   pictures: pictures,
   titles: titles,
@@ -91,7 +91,8 @@ app.post("/upload", (req, res)=>{
   const date = time.toLocaleDateString("nl-NL", {
     weekday: "long",
     day: "numeric",
-    month:"long"
+    month:"long",
+    year: "numeric"
   })
   const title = req.body.Title;
   const description = req.body.Description;

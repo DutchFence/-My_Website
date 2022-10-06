@@ -50,13 +50,13 @@
 
 
   <div class="col-md-6">
-    <img src=<%= pictures[index] %> alt="">
+  <a href="/upload"><img src=<%= pictures[index] %> alt=""></a>
 
   </div>
 <div class="col-md-6">
   <div class="">
     <p class="tag"><%= tags[index]%></p>
-  <h2><%= titles[index]%></h2>
+    <a class="link-dark" href="/upload"><h2><%= titles[index]%></h2></a>
   <p>
   <i class="fa-solid fa-pen"></i> <b> <%=dates[index]%></b>
   <%  if (tags[index]=="Hiking")  { %>

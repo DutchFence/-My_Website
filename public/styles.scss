@@ -82,9 +82,9 @@ margin-top: 4rem;
   color: grey;
 }
 a{
-text-decoration: none;
-color:white;
+  text-decoration: none;
 }
+
 
 .readMore{
   background-color: black;
@@ -93,6 +93,11 @@ color:white;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  a{
+
+  color:white;
+  }
 }
 img{
   width:100%;
