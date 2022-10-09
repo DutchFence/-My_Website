@@ -2,17 +2,18 @@ const mongoose = require("mongoose");
 const _ = require('lodash');
 const models = require("../schemas/article.js")(mongoose);
 let model = models.Article;
-let titles = [];
-let locations = [];
-let tags = [];
-let descriptionsRaw = [];
-let pictures = [];
-let descriptions = [];
-let articles = [];
-let dates = [];
-let ids = [];
+
 
 function modelQuery() {
+  let titles = [];
+  let locations = [];
+  let tags = [];
+  let descriptionsRaw = [];
+  let pictures = [];
+  let descriptions = [];
+  let articles = [];
+  let dates = [];
+  let ids = [];
   return new Promise((resolve, reject) => {
     model.find((err, items) => {
       if (err) {
@@ -61,6 +62,15 @@ return search.then((results)=>{
 
 
 function modelQuery2(id) {
+  let titles = [];
+  let locations = [];
+  let tags = [];
+  let descriptionsRaw = [];
+  let pictures = [];
+  let descriptions = [];
+  let articles = [];
+  let dates = [];
+  let ids = [];
   return new Promise((resolve, reject) => {
     model.findById(id,function(err, item) {
       if (err) {
