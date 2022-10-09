@@ -12,6 +12,7 @@ let pictures =[];
 let descriptions =[];
 let articles =[];
 let dates =[];
+let ids = [];
 let Article =  models.Article;
 
 Article.find((err, items)=>{
@@ -26,10 +27,11 @@ items.forEach((blog)=>{
   tags.unshift(blog.tag),
   dates.unshift(blog.date),
   articles.unshift(blog.article),
-  locations.unshift(blog.location)
+  locations.unshift(blog.location),
+  ids.unshift(blog._id)
 
 });
-
+console.log(titles);
 descriptions = descriptionsRaw.map(x => _.truncate(x, {
   "length": 300,
   "omission": "..."
@@ -50,7 +52,8 @@ router.get("/", (req,res)=>{
   description: descriptions,
   article: articles,
   dates: dates,
-  locations: locations
+  locations: locations,
+  ids: ids
   });
 })
 
