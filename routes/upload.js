@@ -2,7 +2,7 @@ const express = require("express");
 const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
-const models = require("./newPost")(mongoose);
+const models = require('../config/schemas/newPost.js')(mongoose);
 let newPost = models.newPost;
 
 router

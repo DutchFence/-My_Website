@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const _ = require('lodash');
-const models = require("./article")(mongoose);
+const models = require("../schemas/article.js")(mongoose);
 let model = models.Article;
 let titles = [];
 let locations = [];

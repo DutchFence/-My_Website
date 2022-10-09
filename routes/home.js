@@ -2,14 +2,14 @@ const express = require("express");
 const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
-const find = require("./find.js")
+const find = require("../config/functions/find.js");
 let loadData;
 
 
 router
 router.route("/")
 .get((req,res)=>{
-  
+
   loadData =find.searchAll();
   loadData.then(function(results){
     res.render("index", {

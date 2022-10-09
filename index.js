@@ -13,12 +13,7 @@ app.use(express.static(__dirname + '/public'));
 mongoose.connect("mongodb://localhost:27017/blogPosts");
 
 
-app.get("/article/:id", (req,res)=>{
-  console.log(req.params.id);
-  res.render("article", {
-    id: req.params.id
-  })
-});
+
 
 app.listen(3000, ()=>{
   console.log("server 3000 online");

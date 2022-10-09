@@ -2,8 +2,8 @@ const express = require("express");
 const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
-const find = require("./find.js")
-let ape;
+const find = require("../config/functions/find.js");
+
 
 router
 router.route("/:id")
@@ -13,15 +13,7 @@ res.render("article",{
   id:req.id
 });
 })
-router.param("id",(req,res,next,id)=>{
 
-  find.modelQuery().then((pictures)=>{
-    console.log(pictures);
-  }).catch(()=>{
-    console.log("fail");
-  })
-  next();
-})
 
 
 
