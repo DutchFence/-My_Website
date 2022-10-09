@@ -59,7 +59,58 @@ return search.then((results)=>{
   }
 }
 
+
+function modelQuery2(id) {
+  return new Promise((resolve, reject) => {
+    model.findById(id,function(err, item) {
+      if (err) {
+        reject(err);
+      } else {
+          titles.unshift(item.title),
+          descriptionsRaw.unshift(item.description),
+          pictures.unshift(item.thumbnail),
+          tags.unshift(item.tag),
+          dates.unshift(item.date),
+          articles.unshift(item.article),
+          locations.unshift(item.location),
+          ids.unshift(item._id)
+
+
+        descriptions = descriptionsRaw.map(x => _.truncate(x, {
+          "length": 300,
+          "omission": "..."
+        }));
+        let fullArray = {
+          pictures: pictures,
+          titles: titles,
+          tags: tags,
+          description: descriptions,
+          article: articles,
+          dates: dates,
+          locations: locations,
+          ids: ids
+        }
+        resolve(fullArray);
+      }
+    });
+  });
+}
+async function searchArticleById(id){
+  try{
+  const search =modelQuery2(id)
+return search.then((results)=>{
+  return results})
+}
+  catch(err){
+    console.log(err);
+
+  }
+}
+
+
   module.exports = {
     modelQuery,
-    searchAll
+    searchAll,
+    modelQuery2,
+    searchArticleById
   };
