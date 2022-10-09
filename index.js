@@ -5,6 +5,7 @@ const app = express();
 const bodyparser= require("body-parser");
 const mongoose=require("mongoose");
 
+
 app.use(bodyparser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -12,8 +13,12 @@ app.use(express.static(__dirname + '/public'));
 mongoose.connect("mongodb://localhost:27017/blogPosts");
 
 
-
-
+app.get("/article/:id", (req,res)=>{
+  console.log(req.params.id);
+  res.render("article", {
+    id: req.params.id
+  })
+});
 
 app.listen(3000, ()=>{
   console.log("server 3000 online");
