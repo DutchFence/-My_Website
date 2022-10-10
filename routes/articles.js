@@ -20,7 +20,8 @@ res.render("article",{
   article: results.article[0],
   date: results.dates[0],
   location: results.locations[0],
-  tag:results.tags[0]
+  tag:results.tags[0],
+  picture:results.pictures[0]
 });
 })
 });

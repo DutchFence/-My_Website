@@ -9,7 +9,7 @@ let loadData;
 router
 router.route("/")
 .get((req,res)=>{
-
+  
   loadData =find.searchArticle();
   loadData.then(function(results){
     res.render("index", {

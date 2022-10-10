@@ -58,7 +58,7 @@ nav .navbar-brand {
   margin-top: 4rem;
 }
 #main-page-welcome img {
-  opacity: 0.5;
+  opacity: 0.6;
   height: -webkit-fill-available;
   height: -moz-available;
   height: fill-available;
@@ -89,13 +89,8 @@ nav .navbar-brand {
 }
 #main-page-latest-updates img {
   width: 100%;
-  border: 1px solid #d9d9d9;
   border-radius: 4px;
-  padding: 5px;
   object-fit: cover;
-}
-#main-page-latest-updates img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 }
 
 /*# sourceMappingURL=styles.css.map */

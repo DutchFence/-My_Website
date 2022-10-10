@@ -55,7 +55,6 @@ nav{
       font-size: 3rem;
     }
 
-
 .carousel-item{
   background-color: black;
   width: 55%;
@@ -65,7 +64,7 @@ left: 22.5%;
 margin-top: 4rem;
 }
     img{
-      opacity:0.5;
+      opacity:0.6;
       height: -webkit-fill-available;
       height: -moz-available;
       height: fill-available
@@ -95,21 +94,22 @@ a{
   justify-content: center;
 
   a{
-
   color:white;
   }
 }
 img{
   width:100%;
-  border: 1px solid #d9d9d9;
   border-radius: 4px;
-  padding: 5px;
   object-fit: cover;
 
 }
-img:hover {
-  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
+
 text-align: left;
+}
+
+
+// ARTICLE PAGE
+// Top section
+#topSection{
 
 }
