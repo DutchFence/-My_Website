@@ -4,7 +4,7 @@ const models = require("../schemas/article.js")(mongoose);
 let model = models.Article;
 
 
-function modelQuery() {
+function queryAll() {
   let titles = [];
   let locations = [];
   let tags = [];
@@ -49,19 +49,10 @@ function modelQuery() {
     });
   });
 }
-async function searchAll(){
-  try{
-  const search =modelQuery()
-return search.then((results)=>{
-  return results})
-}
-  catch(err){
-    console.log(err);
-  }
-}
 
 
-function modelQuery2(id) {
+
+function queryById(id) {
   let titles = [];
   let locations = [];
   let tags = [];
@@ -105,22 +96,40 @@ function modelQuery2(id) {
     });
   });
 }
-async function searchArticleById(id){
+async function searchArticle(id){
+switch(typeof id){
+  case "undefined":
   try{
-  const search =modelQuery2(id)
+    console.log("in default");
+  const search =queryAll()
+  return search.then((results)=>{
+    return results})
+      }
+      catch(err){
+  console.log(err);
+  }
+break;
+
+default:
+try{
+const search =queryById(id)
 return search.then((results)=>{
   return results})
+    }
+    catch(err){
+console.log(err);
 }
-  catch(err){
-    console.log(err);
+break;
+}
 
-  }
+
+
+
 }
 
 
   module.exports = {
-    modelQuery,
-    searchAll,
-    modelQuery2,
-    searchArticleById
+    queryAll,
+    queryById,
+    searchArticle
   };

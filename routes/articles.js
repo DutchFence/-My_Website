@@ -11,8 +11,8 @@ router.route("/:id")
 
 let id= req.params.id;
   console.log(req.params)
-  loadArticle=find.searchArticleById(id);
-loadArticle.then(function(results){
+  loadArticle=find.searchArticle(id);
+  loadArticle.then(function(results){
 
 
 res.render("article",{

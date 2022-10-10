@@ -10,7 +10,7 @@ router
 router.route("/")
 .get((req,res)=>{
 
-  loadData =find.searchAll();
+  loadData =find.searchArticle();
   loadData.then(function(results){
     res.render("index", {
     pictures: results.pictures,
