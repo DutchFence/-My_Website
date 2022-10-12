@@ -31,7 +31,7 @@ function queryAll() {
 
         });
         descriptions = descriptionsRaw.map(x => _.truncate(x, {
-          "length": 300,
+          "length": 200,
           "omission": "..."
         }));
         let fullArray = {

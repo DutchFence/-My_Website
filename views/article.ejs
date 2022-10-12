@@ -1,9 +1,47 @@
 <%- include("partials/header.ejs") %>
-<section>
-  <a href=<%=picture%>><img src="<%=picture%>" alt="Picture of <%=title%>"></a>
-  <a href="#"></a>
-  <h1><%= title%></h1>
-  <p><%= tag%></p>
+<section id="topSection">
+  <div class="container-fluid d-flex justify-content-center mt-3">
+<div class="a">
+      <img class="" src="<%=picture%>" alt="Picture of <%=title%>">
+    <div class="img-texst">
+      <h1><%=title%></h1>
+    </div>
+    </div>
+    </div>
+    <div class="container-fluid d-flex justify-content-center ">
+  <div class="border-seperator mt-3 w-75 d-flex">
+    <div class=" ps-1">
+        <p class="tag "><b><%= tag%></b></p>
+    </div>
+<div class="ps-4">
+    <p class="date"><b>  <%= date%></b></p>
+</div>
+<div class="pe-4 ms-auto">
+  <div class="row">
+
+<div class="col-sm-5 col-lg-3">
+  <button type="button" class="btn btn-md btn-floating ">    <i class="fab fa-facebook-f"></i>
+  </button>
+  </div>
+  <div class="col-sm-5 col-lg-3">
+  <button type="button" class="btn btn-md btn-floating ">
+    <i class="fab fa-youtube"></i>
+  </button>
+    </div>
+  <div class="col-sm-5 col-lg-3">
+  <button type="button" class="btn btn-md btn-floating ">    <i class="fab fa-instagram"></i>
+  </button>
+    </div>
+  <div class="col-sm-5 col-lg-3">
+  <button type="button" class="btn  btn-md btn-floating">
+    <i class="fab fa-twitter"></i>
+  </button>
+
+    </div>
+    </div>
+</div>
+</div>
+    </div>
 </section>
 
 <p><%= article%></p>
