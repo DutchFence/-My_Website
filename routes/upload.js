@@ -4,11 +4,15 @@ const router = express.Router();
 const mongoose=require("mongoose");
 const models = require('../config/schemas/newPost.js')(mongoose);
 let newPost = models.newPost;
-
+const dotenv = require('dotenv');
+dotenv.config();
+const uploadCode = process.env.UPLOAD;
 router
 .route("/")
 .get((req,res)=>{
-    res.render("upload");
+    res.render("upload",{
+      uploadCode: uploadCode
+    });
 
 }
 )

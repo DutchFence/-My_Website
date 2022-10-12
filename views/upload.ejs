@@ -5,7 +5,7 @@
 
 
     <div class="container d-flex justify-content-center flex-column">
-      <form  action="upload" method="post">
+      <form  action=<%= "/"+uploadCode   %> method="post">
         <div class="form-group">
           <label for="titleText">Title</label>
           <input class="form-control" type="text" id="titleText" name="Title" value="">
@@ -43,7 +43,7 @@
 
         </div>
         <div class="form-group">
-          <label for="descriptionText">Preview</label>
+          <label for="descriptionText">Set contentEditable to false and delete the last input with the link to quilljs till embed URL</label>
           <textarea class="form-control" id="preview" name="preview" rows="8" cols="80"></textarea>
 
         </div>
