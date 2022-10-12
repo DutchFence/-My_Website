@@ -24,7 +24,8 @@ router
     })
     const title = req.body.Title;
     const description = req.body.Description;
-    const article = req.body.Article;
+    const article = req.body.preview;
+    console.log("artc"+typeof article);
     const thumbnail = req.body.Thumbnail;
     const tag = req.body.Tag;
     const location = req.body.Location
@@ -43,7 +44,7 @@ router
       if(err){
         console.log(err);
       }else{
-        console.log("updated: "+ newArt);
+        // console.log("updated: "+ newArt);
       }
     });
 

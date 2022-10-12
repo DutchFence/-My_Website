@@ -1,7 +1,8 @@
 
 <%- include("partials/header.ejs") %>
 
-<!DOCTYPE html>
+<body>
+
 
     <div class="container d-flex justify-content-center flex-column">
       <form  action="upload" method="post">
@@ -36,14 +37,40 @@
 
         </div>
         <div class="form-group">
-          <label for="articleText">article</label>
-          <textarea class="form-control" id="articleText" name="Article" rows="8" cols="80"></textarea>
+          <div id="editor" name="editor">
+
+          </div>
 
         </div>
-<button type="submit"  name="button">submit</button>
+        <div class="form-group">
+          <label for="descriptionText">Preview</label>
+          <textarea class="form-control" id="preview" name="preview" rows="8" cols="80"></textarea>
+
+        </div>
+          <button type="button" id="subbmit" name="">Commit text</button>
+<button type="submit" id="submit"  name="button">submit</button>
       </form>
     </div>
 
+    <script>
+      var quill = new Quill('#editor', {
+        theme: 'snow'
+      });
+
+
+    </script>
+    <script >
+      let submit =document.getElementById("subbmit");
+      if(submit){
+        console.log("bestaat");
+      submit.addEventListener("click", function(){
+        let contentString={text: document.getElementById("editor").innerHTML};
+        console.log(contentString);
+
+          document.getElementById("preview").innerHTML = contentString.text;
+
+      });}
+    </script>
   </body>
 
 </html>
