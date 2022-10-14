@@ -39,7 +39,7 @@
 
         </div>
         <div class="form-group">
-          <label for="descriptionText">Set contentEditable to false and delete the last input with the link to quilljs till embed URL</label>
+          <label for="descriptionText">Set contentEditable to false and delete the last input starting at ql-clipboard</label>
           <textarea class="form-control" id="preview" name="preview" rows="8" cols="80"></textarea>
 
         </div>
@@ -48,24 +48,50 @@
       </form>
     </div>
 
-    <script>
-      var quill = new Quill('#editor', {
-        theme: 'snow'
-      });
 
+    <script>
+var toolbarOptions = [  ['bold', 'italic', 'underline', 'strike'],
+['link','image'],       // toggled buttons
+  ['blockquote', 'code-block'],
+
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],                         // text direction
+
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  ['clean']                                         // remove formatting button
+]
+
+    var quill = new Quill('#editor', {
+      modules: {
+          toolbar: toolbarOptions,
+        syntax: true              // Include syntax module
+
+          // Include button in toolbar
+      },
+      theme: 'snow'
+    });
 
     </script>
     <script >
+
       let submit =document.getElementById("subbmit");
       if(submit){
         console.log("bestaat");
+        if(
       submit.addEventListener("click", function(){
         let contentString={text: document.getElementById("editor").innerHTML};
-        console.log(contentString);
-
           document.getElementById("preview").innerHTML = contentString.text;
 
-      });}
+      }));}
     </script>
   </body>
 
