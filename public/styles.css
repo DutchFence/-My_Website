@@ -21,6 +21,10 @@ a {
   color: inherit;
 }
 
+#bigText {
+  border: none;
+}
+
 .marg1 {
   margin: 8rem 0;
 }
