@@ -31,7 +31,11 @@ nav{
   }
   background-color: $navBarColor;
 }
+a{
 
+  text-decoration: none;
+  color:inherit;
+}
 // Custom classes
 @each $name, $glyph in $elementHeights{
 .marg#{$name}{

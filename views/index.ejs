@@ -46,18 +46,15 @@
 <div class="col-lg-7 col-sm-11 d-flex justify-content-center ">
   <div class="row">
   <div class="col-md-6 pt-4">
-  <a href="/article/"<%= ids[index]%> ><img src=<%= pictures[index] %> alt=""></a>
+  <a href=<%= "/article/"+ids[index]%> ><img src=<%= pictures[index] %> alt=""></a>
 
   </div>
 <div class="col-md-6">
   <div class="">
-    <p class="tag"><%= tags[index]%></p>
+    <p class="tag"><a href= <%="/search/byTag/" + tags[index]%>><%= tags[index]%></a></p>
     <a class="link-dark" href=<%= "/article/" + ids[index]%>><h2><%= titles[index]%></h2></a>
   <p>
   <i class="fa-solid fa-pen"></i> <b> <%=dates[index]%></b>
-  <%  if (tags[index]=="Hiking")  { %>
-<i class=" ps-4 fa-solid fa-location-dot"></i> <b>     <%=locations[index]%></b>
-  <%  } %>
 
 </div>
 <div class="texttt">

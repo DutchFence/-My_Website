@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs") %>
+
+<section>
+  <div class="d-flex justify-content-center">
+    <h1>Search results for <%= searchQuery%>: </h1>
+  </div>
+</section>
+<section id="main-page-latest-updates">
+<div class="container-fluid">
+
+<% description.forEach((x, index) => { %>
+<div class="col-lg-7 col-sm-11 d-flex justify-content-center ">
+  <div class="row">
+  <div class="col-md-6 pt-4">
+  <a href=<%= "/article/"+ids[index]%> ><img src=<%= pictures[index] %> alt=""></a>
+
+  </div>
+<div class="col-md-6">
+  <div class="">
+    <p class="tag"><a href=<%="/search/byTag/"+ tags[index] %>><%= tags[index]%></a></p>
+    <a class="link-dark" href=<%= "/article/" + ids[index]%>><h2><%= titles[index]%></h2></a>
+  <p>
+  <i class="fa-solid fa-pen"></i> <b> <%=dates[index]%></b>
+
+</div>
+<div class="texttt">
+  <p><%= x  %></p>
+</div>
+<div class="readMore">
+<a href=<%= "/article/" + ids[index]%>>Read more</a>
+</div>
+
+</div>
+<div class=" border-seperator ">
+</div>
+  </div>
+
+</div>
+<% } ); %>
+
+
+</div>
+
+
+</section>
+<%- include("partials/footer.ejs") %>

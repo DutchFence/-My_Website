@@ -14,9 +14,8 @@ module.exports = function(mongoose){
     article: String,
     date: String,
     views: {type:Number, default: 0},
-    comments: [commentSchema],
-    location: {type: String, default: ""}
-  });
+    comments: [commentSchema]
+    });
 
   var models={
     Article: mongoose.model("Article", articleSchema)

@@ -6,7 +6,6 @@ let model = models.Article;
 
 function queryAll() {
   let titles = [];
-  let locations = [];
   let tags = [];
   let descriptionsRaw = [];
   let pictures = [];
@@ -26,7 +25,6 @@ function queryAll() {
           tags.unshift(blog.tag),
           dates.unshift(blog.date),
           articles.unshift(blog.article),
-          locations.unshift(blog.location),
           ids.unshift(blog._id)
 
         });
@@ -41,7 +39,6 @@ function queryAll() {
           description: descriptions,
           article: articles,
           dates: dates,
-          locations: locations,
           ids: ids
         }
         resolve(fullArray);
@@ -51,10 +48,53 @@ function queryAll() {
 }
 
 
+function queryByTag(id) {
+  console.log("gegeven tag ="+id);
+  let titles = [];
+  let tags = [];
+  let descriptionsRaw = [];
+  let pictures = [];
+  let descriptions = [];
+  let articles = [];
+  let dates = [];
+  let ids = [];
+  return new Promise((resolve, reject) => {
+    model.find({tag: id},function(err, item) {
+      if (err) {
+        reject(err);
+      } else {
+console.log(item);
+item.forEach((blog)=>{
+          titles.unshift(blog.title),
+          descriptionsRaw.unshift(blog.description),
+          pictures.unshift(blog.thumbnail),
+          tags.unshift(blog.tag),
+          dates.unshift(blog.date),
+          articles.unshift(blog.article),
+          ids.unshift(blog._id)
+})
 
+        descriptions = descriptionsRaw.map(x => _.truncate(x, {
+          "length": 300,
+          "omission": "..."
+        }));
+        let fullArray = {
+          pictures: pictures,
+          titles: titles,
+          tags: tags,
+          description: descriptions,
+          article: articles,
+          dates: dates,
+          ids: ids
+        }
+
+        resolve(fullArray);
+      }
+    });
+  });
+}
 function queryById(id) {
   let titles = [];
-  let locations = [];
   let tags = [];
   let descriptionsRaw = [];
   let pictures = [];
@@ -73,7 +113,6 @@ function queryById(id) {
           tags.unshift(item.tag),
           dates.unshift(item.date),
           articles.unshift(item.article),
-          locations.unshift(item.location),
           ids.unshift(item._id)
 
 
@@ -88,7 +127,6 @@ function queryById(id) {
           description: descriptions,
           article: articles,
           dates: dates,
-          locations: locations,
           ids: ids
         }
         resolve(fullArray);
@@ -96,12 +134,11 @@ function queryById(id) {
     });
   });
 }
-async function searchArticle(id){
-switch(typeof id){
-  case "undefined":
+async function searchArticle(id, category){
+switch(category){
+  case "id":
   try{
-    console.log("in default");
-  const search =queryAll()
+  const search =queryById(id)
   return search.then((results)=>{
     return results})
       }
@@ -110,15 +147,28 @@ switch(typeof id){
   }
 break;
 
-default:
+case "tag":
 try{
-const search =queryById(id)
+  console.log("tagname is " + id);
+const search =queryByTag(id)
 return search.then((results)=>{
   return results})
     }
     catch(err){
 console.log(err);
 }
+break;
+
+default:
+ try{
+    console.log("in default");
+  const search =queryAll()
+  return search.then((results)=>{
+    return results})
+      }
+      catch(err){
+  console.log(err);
+  }
 break;
 }
 
@@ -131,5 +181,6 @@ break;
   module.exports = {
     queryAll,
     queryById,
+    queryByTag,
     searchArticle
   };

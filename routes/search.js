@@ -3,16 +3,20 @@ const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
 const find = require("../config/functions/find.js");
-let loadData;
-
+let loadArticle;
 
 router
-router.route("/")
+router.route("/byTag/:tag")
 .get((req,res)=>{
 
-  loadData =find.searchArticle();
-  loadData.then(function(results){
-    res.render("index", {
+  let tag= req.params.tag;
+console.log(req.params);
+
+   loadArticle =find.searchArticle(tag, "tag");
+  loadArticle.then(function(results){
+    console.log("results = "+ results);
+    res.render("resultsPage", {
+    searchQuery: tag,
     pictures: results.pictures,
     titles: results.titles,
     tags: results.tags,
@@ -24,8 +28,7 @@ router.route("/")
   }).catch((err)=>{
 console.log(err);})
 
-})
-
+});
 
 
 

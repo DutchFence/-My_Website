@@ -7,6 +7,7 @@ const mongoose=require("mongoose");
 const homeRouter = require("./routes/home.js");
 const uploadRouter = require("./routes/upload.js");
 const articleRouter = require("./routes/articles.js");
+const searchRouter = require("./routes/search.js");
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -22,6 +23,7 @@ mongoose.connect("mongodb://localhost:27017/blogPosts");
 app.use("/",  homeRouter);
 app.use("/"+ uploadCode, uploadRouter);
 app.use("/article", articleRouter);
+app.use("/search", searchRouter);
 
 
 

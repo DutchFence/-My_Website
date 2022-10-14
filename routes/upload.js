@@ -20,7 +20,7 @@ router
 
 
     const time = new Date();
-    const date = time.toLocaleDateString("nl-NL", {
+    const date = time.toLocaleDateString("en-US", {
       weekday: "long",
       day: "numeric",
       month:"long",
@@ -32,7 +32,6 @@ router
     console.log("artc"+typeof article);
     const thumbnail = req.body.Thumbnail;
     const tag = req.body.Tag;
-    const location = req.body.Location
 
   let post = new newPost({
       title: title,
@@ -40,8 +39,7 @@ router
       description: description,
       article: article,
       thumbnail: thumbnail,
-      date: date,
-      location: location
+      date: date
     });
 
     post.save(function(err, newArt){
