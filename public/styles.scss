@@ -38,6 +38,7 @@ a{
 }
 #bigText{
   border:none;
+  
 }
 // Custom classes
 @each $name, $glyph in $elementHeights{
