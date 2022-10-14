@@ -48,14 +48,18 @@
 
 <script>
 
-
+  hljs.configure({   // optionally configure hljs
+    languages: ['javascript', 'ruby', 'python']
+  });
 var quill = new Quill('#bigText', {
   modules: {
     syntax: true,              // Include syntax module
     toolbar: [['code-block']],
+    "toolbar": false
       // Include button in toolbar
   },readOnly: true,
   theme: 'snow'
 });
+quill.enable(false);
 </script>
 <%- include("partials/footer.ejs") %>
