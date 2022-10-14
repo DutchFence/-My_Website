@@ -44,18 +44,17 @@
 
 </section>
 
-<script href="highlight.js"></script>
+
 
 <script>
-hljs.configure({   // optionally configure hljs
-  languages: ['javascript', 'ruby', 'python']
-});
+
 
 var quill = new Quill('#bigText', {
   modules: {
     syntax: true,              // Include syntax module
-    toolbar: [['code-block']]  // Include button in toolbar
-  },
+    toolbar: [['code-block']],
+      // Include button in toolbar
+  },readOnly: true,
   theme: 'snow'
 });
 </script>
