@@ -2,14 +2,18 @@ const express = require("express");
 const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
-const models = require('../config/schemas/newPost.js')(mongoose);
-let newPost = models.newPost;
+const newPostModel = require('../config/schemas/newPost.js')(mongoose);
+let newPost = newPostModel.newPost;
 const dotenv = require('dotenv');
+const moderatorModel = require('../config/schemas/moderator.js');
+const modModel = moderatorModel.Moderator;
 dotenv.config();
 const uploadCode = process.env.UPLOAD;
+
 router
 .route("/")
 .get((req,res)=>{
+
     res.render("upload",{
       uploadCode: uploadCode
     });
