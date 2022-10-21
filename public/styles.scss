@@ -38,7 +38,7 @@ a{
 }
 #bigText{
   border:none;
-  
+
 }
 // Custom classes
 @each $name, $glyph in $elementHeights{
@@ -52,7 +52,18 @@ a{
 
 
 }
+.ql-editor{
+  width:50%;
 
+
+  p{
+    font-size: 1.05rem;
+  }
+  h1, h2, h3{
+    font-weight: 700;
+  }
+
+}
 // Main page
 
 // Welcome section
