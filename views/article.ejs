@@ -1,63 +1,95 @@
 <%- include("partials/header.ejs") %>
+<section id="articlePage">
+
+
 <section id="topSection">
   <div class="container-fluid d-flex justify-content-center mt-3">
-<div class="a">
+    <div class="a">
       <img class="" src="<%=picture%>" alt="Picture of <%=title%>">
-    <div class="img-texst">
-      <h1><%=title%></h1>
+      <div class="img-texst">
+        <h1><%=title%></h1>
+      </div>
     </div>
-    </div>
-    </div>
-    <div class="container-fluid d-flex justify-content-center ">
-  <div class="border-seperator mt-3 w-75 d-flex">
-    <div class=" ps-1">
+  </div>
+  <div class="container-fluid d-flex justify-content-center ">
+    <div class="border-seperator mt-3 w-75 d-flex">
+      <div class=" ps-1">
         <p class="tag "><a href=<%="/search/byTag/"+ tag %>><b><%= tag%></b></a></p>
-    </div>
-<div class="ps-4">
-    <p class="date"><b> Last updated: <%= date%></b></p>
-</div>
-<div class="pe-4 ms-auto">
-  <div class="row">
+      </div>
+      <div class="ps-4">
+        <p class="date"><b> Last updated: <%= date%></b></p>
+      </div>
+      <div class="pe-4 ms-auto">
+        <div class="row">
 
-<div class="col-sm-5 col-lg-3">
-        <a class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/thomas.heck.3154"><i class="fab fa-facebook-f"></i></a>
+          <div class="col-sm-5 col-lg-3">
+            <a class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/thomas.heck.3154"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <div class="col-sm-5 col-lg-3">
+            <a class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCqFXbK6WZ7FF3SbtLvOt3OQ"><i class="fab fa-youtube"></i></a>
+          </div>
+          <div class="col-sm-5 col-lg-3">
+            <a class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/thomas-heck-a7233b254/"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <div class="col-sm-5 col-lg-3">
+            <a class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCqFXbK6WZ7FF3SbtLvOt3OQ"><i class="fab fa-instagram"></i></a>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-5 col-lg-3">
-    <a  class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCqFXbK6WZ7FF3SbtLvOt3OQ"><i class="fab fa-youtube"></i></a>
-    </div>
-  <div class="col-sm-5 col-lg-3">
-  <a  class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/thomas-heck-a7233b254/"><i class="fab fa-linkedin"></i></a>
-    </div>
-  <div class="col-sm-5 col-lg-3">
-  <a  class="mx-2" rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCqFXbK6WZ7FF3SbtLvOt3OQ"><i class="fab fa-instagram"></i></a>
-
-    </div>
-    </div>
-</div>
-</div>
-    </div>
 </section>
-<section>
-  <div id="bigText" class="d-flex justify-content-center" name="bigText">
-      <%- article%>
+<section id=articleSection>
+<div class="container-fluid">
+
+<div class="row">
+
+
+  <div class=" col-md-3" >
+<div class="indexArticle" id="indexArticle">
+
+</div>
   </div>
 
+<div class="col-md-6">
+
+
+  <div id="bigText" class="d-flex justify-content-center " name="bigText">
+    <%- article%>
+  </div>
+</div>
 </section>
 
-
+</section>
 
 <script>
-
-
-var quill = new Quill('#bigText', {
-  modules: {
-    syntax: true,              // Include syntax module
-    toolbar: [['code-block']],
-    "toolbar": false
+  var quill = new Quill('#bigText', {
+    modules: {
+      syntax: true, // Include syntax module
+      toolbar: [
+        ['code-block']
+      ],
+      "toolbar": false
       // Include button in toolbar
-  },readOnly: true,
-  theme: 'snow'
-});
-quill.enable(false);
+    },
+    readOnly: true,
+    theme: 'snow'
+  });
+  quill.enable(false);
 </script>
+<script defer>
+  let x = [];
+  let headers = [];
+  let index = document.getElementById("indexArticle");
+  headers = document.getElementsByTagName("h2");
+  let j;
+  for (let i = 0; i < headers.length; i++) {
+    j = "index" + i;
+    headers[i].setAttribute('id', j);
+    x.push("<a href='#" + j + "'>" + headers[i].textContent + "</a>");
+  }
+  index.innerHTML = x.join('<br>');
+</script>
+
 <%- include("partials/footer.ejs") %>

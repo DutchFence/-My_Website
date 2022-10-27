@@ -10,11 +10,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
-const homeRouter = require("./routes/home.js");
-const uploadRouter = require("./routes/upload.js");
-const articleRouter = require("./routes/articles.js");
-const searchRouter = require("./routes/search.js");
-const loginRouter = require("./routes/login.js");
+
 
 
 dotenv.config();
@@ -36,15 +32,20 @@ const connectionParams={
 }
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
-  secret: 'keyboard cat',
-  resave: false,
+  secret: process.env.SECRET,
+  resave: true,
+  secure: true,
   saveUninitialized: true,
   cookie: { secure: true }
 }))
 
 app.use(passport.initialize());
 app.use(passport.session());
-
+const homeRouter = require("./routes/home.js");
+const uploadRouter = require("./routes/upload.js");
+const articleRouter = require("./routes/articles.js");
+const searchRouter = require("./routes/search.js");
+const loginRouter = require("./routes/login.js");
 mongoose.connect(url,connectionParams)
     .then( () => {
         console.log('Connected to the database ')
@@ -52,6 +53,7 @@ mongoose.connect(url,connectionParams)
     .catch( (err) => {
         console.error('Error connecting to the database. '+err);
     });
+    
 
 
 

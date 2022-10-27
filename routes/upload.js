@@ -2,24 +2,39 @@ const express = require("express");
 const _ = require('lodash');
 const router = express.Router();
 const mongoose=require("mongoose");
+const modSchema = require("../config/schemas/moderator.js");
+const session = require("express-session");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 const newPostModel = require('../config/schemas/newPost.js')(mongoose);
 let newPost = newPostModel.newPost;
 const dotenv = require('dotenv');
+passport.use(modSchema.createStrategy());
+passport.serializeUser(modSchema.serializeUser());
+passport.deserializeUser(modSchema.deserializeUser());
 const moderatorModel = require('../config/schemas/moderator.js');
 const modModel = moderatorModel.Moderator;
 dotenv.config();
 const uploadCode = process.env.UPLOAD;
+const login = process.env.LOGIN;
 
 router
 .route("/")
 .get((req,res)=>{
 
-    res.render("upload",{
-      uploadCode: uploadCode
-    });
+if(req.isAuthenticated()){
 
+  console.log("succes");
+  res.render("upload",{
+    uploadCode: uploadCode
+  });
+}else{
+
+res.redirect("/"+login);
 }
-)
+
+
+})
 .post((req,res)=>{
 
 
@@ -33,7 +48,7 @@ router
     const title = req.body.Title;
     const description = req.body.Description;
     const article = req.body.preview;
-    console.log("artc"+typeof article);
+
     const thumbnail = req.body.Thumbnail;
     const tag = req.body.Tag;
 
@@ -50,7 +65,7 @@ router
       if(err){
         console.log(err);
       }else{
-        // console.log("updated: "+ newArt);
+        console.log("updated: "+ newArt);
       }
     });
 
