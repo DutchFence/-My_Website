@@ -9,9 +9,9 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const newPostModel = require('../config/schemas/newPost.js')(mongoose);
 let newPost = newPostModel.newPost;
 const dotenv = require('dotenv');
-passport.use(modSchema.createStrategy());
-passport.serializeUser(modSchema.serializeUser());
-passport.deserializeUser(modSchema.deserializeUser());
+// passport.use(modSchema.createStrategy());
+// passport.serializeUser(modSchema.serializeUser());
+// passport.deserializeUser(modSchema.deserializeUser());
 const moderatorModel = require('../config/schemas/moderator.js');
 const modModel = moderatorModel.Moderator;
 dotenv.config();
@@ -21,15 +21,16 @@ const login = process.env.LOGIN;
 router
 .route("/")
 .get((req,res)=>{
-
+console.log("req.isauthenticated: "+req.isAuthenticated());
+console.log("req.user at uploadrouter: "+ req.user);
 if(req.isAuthenticated()){
 
-  console.log("succes");
+  console.log("authentication succes");
   res.render("upload",{
     uploadCode: uploadCode
   });
 }else{
-
+  console.log("authentication fail");
 res.redirect("/"+login);
 }
 

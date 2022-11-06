@@ -10,7 +10,8 @@ const login = process.env.LOGIN;
 passport.use(modSchema.createStrategy());
 passport.serializeUser(modSchema.serializeUser());
 passport.deserializeUser(modSchema.deserializeUser());
-router
+
+
 router.route("/")
 .get((req,res)=>{
 
@@ -27,11 +28,12 @@ req.login(user, function(err){
   console.log(user);
   if(err){
     console.log(err);
+    console.log("req.login failed")
     res.redirect("/");
 
   }else{
     passport.authenticate("local")(req,res,function(){
-
+      console.log("req.login succes with: "+ req.user);
           res.redirect("/"+uploadCode);
     });
 

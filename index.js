@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const bodyparser= require("body-parser");
 const mongoose=require("mongoose");
 const session = require("express-session");
-
+const cors = require("cors");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
@@ -35,8 +35,8 @@ app.use(session({
   secret: process.env.SECRET,
   resave: true,
   secure: true,
-  saveUninitialized: true,
-  cookie: { secure: true }
+  saveUninitialized: true
+
 }))
 
 app.use(passport.initialize());
@@ -53,7 +53,7 @@ mongoose.connect(url,connectionParams)
     .catch( (err) => {
         console.error('Error connecting to the database. '+err);
     });
-    
+app.use(cors());
 
 
 
@@ -68,6 +68,6 @@ app.use("/"+login, loginRouter);
 
 
 
-app.listen(3000, ()=>{
-  console.log("server 3000 online");
+app.listen(port, ()=>{
+  console.log("server "+port+" online");
 })
