@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const bodyparser= require("body-parser");
 const mongoose=require("mongoose");
 const session = require("express-session");
-const cors = require("cors");
+
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 
@@ -53,7 +53,7 @@ mongoose.connect(url,connectionParams)
     .catch( (err) => {
         console.error('Error connecting to the database. '+err);
     });
-app.use(cors());
+
 
 
 
