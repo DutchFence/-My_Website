@@ -6,22 +6,38 @@
 }
 
 footer {
-  background: #d9d9d9;
+  background: #E6A87A;
+  color: #1657AB;
 }
 
 body {
   padding-top: 4rem;
-  background-color: #f2f2f2;
+  background-color: #FFFFF2;
   text-align: center;
 }
 
 nav {
-  background-color: #3D8361;
+  font-family: "EB Garamond", serif;
+  font-size: 1.3rem;
+  color: #1657AB;
+  font-weight: 900;
+  background-color: #E07E34;
 }
 nav .navbar-brand {
-  font-family: "EB Garamond", serif;
-  font-weight: 600;
-  font-size: 1.5rem;
+  text-shadow: 1px 0 2px #613716;
+  font-size: 2rem;
+  color: #1657AB;
+  text-decoration: none;
+}
+nav .nav-link {
+  background: linear-gradient(to right, #E07E34, #E07E34), linear-gradient(to right, #1657AB, #139475, #1657AB);
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+nav .nav-link:hover {
+  background-size: 0 3px, 100% 3px;
 }
 
 a {
@@ -58,7 +74,9 @@ a {
   font-size: 2.5vh;
   line-height: 4vh;
 }
-.ql-editor h1, .ql-editor h2, .ql-editor h3 {
+.ql-editor h1,
+.ql-editor h2,
+.ql-editor h3 {
   margin-top: 5vh;
   margin-bottom: 1rem;
   font-weight: 700;
@@ -67,7 +85,8 @@ a {
 }
 
 #main-page-welcome {
-  background: linear-gradient(to bottom left, #d9d9d9 50%, #f2f2f2 50%);
+  padding-top: 2rem;
+  background: linear-gradient(to bottom left, #FFFFF9 50%, #FFFFF2 50%);
 }
 #main-page-welcome h1 {
   font-family: "EB Garamond", serif;
@@ -80,7 +99,6 @@ a {
   height: 80vh;
   position: relative;
   left: 22.5%;
-  margin-top: 4rem;
 }
 #main-page-welcome img {
   opacity: 0.6;
@@ -97,9 +115,6 @@ a {
 }
 #main-page-latest-updates .tag {
   color: grey;
-}
-#main-page-latest-updates a {
-  text-decoration: none;
 }
 #main-page-latest-updates .readMore {
   background-color: black;
@@ -158,13 +173,17 @@ a {
 }
 #articlePage #articleSection .indexArticle {
   position: sticky;
-  top: 25%;
-  font-size: 0.95rem;
+  top: 30%;
+  font-size: 1.2rem;
   font-weight: 600;
   border-right: solid 2px;
   padding-right: 0.4rem;
   margin-top: 2rem;
   color: blue;
+}
+#articlePage #articleSection .indexArticle a {
+  color: #E07E34;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
