@@ -46,6 +46,7 @@ const uploadRouter = require("./routes/upload.js");
 const articleRouter = require("./routes/articles.js");
 const searchRouter = require("./routes/search.js");
 const loginRouter = require("./routes/login.js");
+const contactRouter = require("./routes/contact.js");
 mongoose.connect(url,connectionParams)
     .then( () => {
         console.log('Connected to the database ')
@@ -64,7 +65,7 @@ app.use("/"+ uploadCode, uploadRouter);
 app.use("/article", articleRouter);
 app.use("/search", searchRouter);
 app.use("/"+login, loginRouter);
-
+app.use("/contact", contactRouter);
 
 
 

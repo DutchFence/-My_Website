@@ -1,0 +1,76 @@
+<%- include("partials/header.ejs") %>
+<section id="contactPage">
+
+
+  <div class="container pb-4   vh-100">
+    <div class="row">
+      <div class="col-12 my-4 ">
+        <h1>Contact</h1>
+      </div>
+
+      <div class="">
+        <div class="">
+          <div class="">
+
+            <p class=" strong lead">To contact me about the articles or the website use the form below</p>
+
+          </div>
+          <div class="">
+            <form class="" action="/contact" method="post">
+
+              <div class="form-group">
+                <label for="contactForm">How can I help you?</label>
+                <select class="form-control" name="contactSubject" id="contactForm" required>
+                  <option value="">Select a subject</option>
+                  <option value="Question">Question</option>
+                  <option value="Suggestion">Suggestion</option>
+                  <option value="Bugs">Bugs</option>
+                  <option value="Work">Work</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="emailContact">Email address</label>
+                <input type="email" class="form-control" id="emailContact" name="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
+              <div class="form-group">
+                <label for="contactTextArea">Your message</label>
+                <textarea class="form-control" name="contactTextArea" id="contactTextArea" rows="10" required></textarea>
+              </div>
+
+                <button type="submit" class="btn btn-primary mt-4" name="submitButton">Send Form</button>
+
+            </form>
+          </div>
+          <div class="">
+
+          </div>
+        </div>
+
+      </div>
+      <!--
+      <div class="col-5 my-4 contactTextBox">
+        <h2>Feedback</h2>
+        <p class="pt-4">uisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfp</p>
+      </div>
+      <div class="col-7">
+      </div>
+
+      <div class="col-7 my-4 contactTextBox">
+      </div>
+      <div class="col-5 my-4 contactTextBox">
+        <h2>Feedback</h2>
+        <p class="pt-4">uisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfp</p>
+      </div>
+
+      <div class="col-5 my-4 contactTextBox">
+        <h2>Feedback</h2>
+        <p class="pt-4">uisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfuisdnsdfuisdfunsdfsdfp</p>
+      </div>
+      <div class="col-7">
+      </div> -->
+    </div>
+
+  </div>
+</section>
+<%- include("partials/footer.ejs") %>

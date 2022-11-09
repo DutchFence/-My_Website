@@ -6,6 +6,7 @@ $brandFont: 'EB Garamond', serif;
 $elementHeight: 32rem;
 $elementWidth: 70%;
 $footerBackground: #E6A87A;
+$headliner: 'Bebas Neue', cursive;
 $bodyTriangle: #FFFFF9;
 $elementHeights: (
   "1": 8rem,
@@ -64,6 +65,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.headliner{
+  font-family: $headliner;
+}
 // Custom classes
 @each $name, $glyph in $elementHeights {
   .marg#{$name} {
@@ -98,18 +102,15 @@ a {
 // Welcome section
 
 #main-page-welcome {
-  h1 {
-    font-family: $brandFont;
-    font-weight: 500;
-    font-size: 3rem;
-  }
 
+  h2{font-family: $headliner;}
   .carousel-item {
+    height:38rem;
     background-color: black;
-    width: 55%;
-    height: 80vh;
-    position: relative;
-    left: 22.5%;
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+
   }
 
   img {
@@ -123,6 +124,7 @@ a {
 }
 //Articles on index.ejs
 #main-page-latest-updates {
+    h2{font-family: $headliner;}
   .container-fluid {
     padding-left: 15rem;
   }
@@ -149,13 +151,16 @@ a {
     border-radius: 4px;
     object-fit: cover;
   }
+
   text-align: left;
+
 }
 
 
 
 // article.ejs
 #articlePage {
+
   #topSection {
     .img-cont {
       position: relative;
@@ -194,6 +199,7 @@ a {
       background: #e0e0eb;
       color: #46466d;
     }
+      h1{font-family: $headliner;}
   }
 
   #articleSection {
@@ -204,7 +210,6 @@ a {
       border: none;
     }
 
-    .container-fluid {}
 
     .indexArticle {
       a{
@@ -221,4 +226,12 @@ a {
       color: blue;
     }
   }
+}
+
+//contact.ejs
+#contactPage{
+  .contactTextBox{
+    height: auto;
+    word-wrap: break-word;
+      }
 }
