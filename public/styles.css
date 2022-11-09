@@ -75,16 +75,16 @@ a {
 }
 
 .ql-editor p {
-  font-size: 2.5vh;
-  line-height: 4vh;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 .ql-editor h1,
-.ql-editor h2,
-.ql-editor h3 {
-  margin-top: 5vh;
+.ql-editor h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   font-weight: 700;
-  line-height: 5vh;
+  line-height: 2rem;
   text-align: center;
 }
 
@@ -151,12 +151,6 @@ a {
 #articlePage #topSection img {
   object-fit: fill;
   opacity: 0.7;
-}
-#articlePage #topSection .img-texst {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 #articlePage #topSection .border-seperator {
   padding-top: 0.5rem;
