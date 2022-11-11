@@ -26,7 +26,7 @@ console.log("req.user at uploadrouter: "+ req.user);
 if(req.isAuthenticated()){
 
   console.log("authentication succes");
-  res.render("upload",{
+  res.render("modHome",{
     uploadCode: uploadCode
   });
 }else{
@@ -35,44 +35,74 @@ res.redirect("/"+login);
 }
 
 
-})
-.post((req,res)=>{
+});
+router
+.route("/upload")
+.get((req,res)=>{
+  console.log("req.isauthenticated: "+req.isAuthenticated());
+  console.log("req.user at uploadrouter: "+ req.user);
+  if(req.isAuthenticated()){
 
-
-    const time = new Date();
-    const date = time.toLocaleDateString("en-US", {
-      weekday: "long",
-      day: "numeric",
-      month:"long",
-      year: "numeric"
-    })
-    const title = req.body.Title;
-    const description = req.body.Description;
-    const article = req.body.preview;
-
-    const thumbnail = req.body.Thumbnail;
-    const tag = req.body.Tag;
-
-  let post = new newPost({
-      title: title,
-      tag: tag,
-      description: description,
-      article: article,
-      thumbnail: thumbnail,
-      date: date
+    console.log("authentication succes");
+    res.render("upload",{
+      uploadCode: uploadCode
     });
+  }else{
+    console.log("authentication fail");
+  res.redirect("/"+login);
+  }
 
-    post.save(function(err, newArt){
-      if(err){
-        console.log(err);
-      }else{
-        console.log("updated: "+ newArt);
-      }
+
+  })
+  .post((req,res)=>{
+
+
+      const time = new Date();
+      const date = time.toLocaleDateString("en-US", {
+        weekday: "long",
+        day: "numeric",
+        month:"long",
+        year: "numeric"
+      })
+      const title = req.body.Title;
+      const description = req.body.Description;
+      const article = req.body.preview;
+
+      const thumbnail = req.body.Thumbnail;
+      const tag = req.body.Tag;
+
+    let post = new newPost({
+        title: title,
+        tag: tag,
+        description: description,
+        article: article,
+        thumbnail: thumbnail,
+        date: date
+      });
+
+      post.save(function(err, newArt){
+        if(err){
+          console.log(err);
+        }else{
+          console.log("updated: "+ newArt);
+        }
+      });
+
+      console.log("saved sucesfully!");
+      res.redirect("/");
     });
+    router
+    .route("/edit")
+    .get((req,res)=>{
+      if(req.isAuthenticated()){
 
-    console.log("saved sucesfully!");
-    res.redirect("/");
-  });
-
-
+        console.log("authentication succes");
+      res.render("edit",{
+        uploadCode:uploadCode
+      })
+    }else{
+      console.log("authentication fail");
+    res.redirect("/"+login);
+    }
+    });
 module.exports = router;

@@ -1,0 +1,14 @@
+
+<%- include("partials/upload_header.ejs",{uploadCode:uploadCode});%>
+
+
+
+<div class="pt-5 vh-100 d-flex flex-column">
+  <a href=<%="/"+uploadCode+"/upload"%> >Upload an Article</a>
+  <a href=<%="/"+uploadCode+"/edit"%> >Edit an Article</a>
+</div>
+
+
+
+
+<%- include("partials/footer.ejs"); %>
