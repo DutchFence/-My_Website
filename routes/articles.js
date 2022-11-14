@@ -39,7 +39,7 @@ router.route("/:id")
 let id= req.params.id;
   console.log(req.params)
   loadArticle=find.searchArticle(id, "id");
-  loadArticle.then(function(results){
+  loadArticle.then((results)=>{
 cleanArticle= sanitizeHTML(results.article[0], cleanOptions)
 
 res.render("article",{

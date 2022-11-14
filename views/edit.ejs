@@ -1,5 +1,15 @@
 <%- include("partials/upload_header.ejs") %>
+<div class=" container-fluid vh-100">
 
+
+<div class="d-flex h-100 flex-column  mt-5 ">
+  <% results.titles.forEach((article,i)=> { %>
+
+    <a href=<%="/"+uploadCode+"/edit/"+results.ids[i]%>><%= article;%></a>
+
+<% }); %>
+</div>
+</div>
 
 
 

@@ -1,0 +1,48 @@
+<%- include("partials/upload_header.ejs",{uploadCode:uploadCode});%>
+
+<div class="container  mt-3">
+  <form class="" action=<%= "/"+ uploadCode+"/edit/"+id %> method="post">
+
+
+  <div id="bigText" class="d-flex justify-content-center " name="bigText">
+    <%- article%>
+  </div>
+
+  <button type="button" id="subbmit" name="">Commit text</button>
+
+<div class="form-group">
+  <label for="descriptionText">Set contentEditable to false and delete the last input starting at ql-clipboard</label>
+  <textarea class="form-control" id="preview" name="preview" rows="8" cols="80"></textarea>
+</div>
+<button type="submit" name="button">Submit</button>
+  </form>
+</div>
+
+<script>
+  var quill = new Quill('#bigText', {
+    modules: {
+      syntax: true, // Include syntax module
+      toolbar: [
+        ['code-block']
+      ],
+      "toolbar": false
+      // Include button in toolbar
+    },
+    readOnly: false,
+    theme: 'snow'
+  });
+
+</script>
+<script >
+
+  let submit =document.getElementById("subbmit");
+  if(submit){
+console.log("submit button is er");
+    if(
+  submit.addEventListener("click", function(){
+    let contentString={text: document.getElementById("bigText").innerHTML};
+      document.getElementById("preview").innerHTML = contentString.text;
+
+  }));}
+</script>
+<%- include("partials/footer.ejs");%>
