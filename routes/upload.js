@@ -121,7 +121,9 @@ router
     router
     .route("/edit/:id")
     .get((req,res)=>{
+      if(req.isAuthenticated()){
 
+        console.log("authentication succes");
       let id= req.params.id;
         console.log(req.params)
         loadArticle=find.searchArticle(id, "id");
@@ -137,6 +139,10 @@ router
         picture:results.pictures[0]
       });
       })
+    }else{
+      console.log("authentication fail");
+    res.redirect("/"+login);
+    }
     })
     .post((req,res)=>{
       let id = req.params.id;
@@ -158,6 +164,9 @@ router
     router
     .route("/inbox")
     .get((req,res)=>{
+      if(req.isAuthenticated()){
+
+        console.log("authentication succes");
     let inbox =  find.showInbox();
     inbox.then((results)=>{
       console.log(results[2].email);
@@ -167,6 +176,9 @@ router
   );
     })
 
-
+  }else{
+    console.log("authentication fail");
+  res.redirect("/"+login);
+  }
     });
 module.exports = router;
