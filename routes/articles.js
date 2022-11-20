@@ -14,7 +14,7 @@ let cleanOptions= {
   "ul", "a", "abbr", "b", "bdi", "bdo", "br", "cite", "code", "data", "dfn",
   "em", "i", "kbd", "mark", "q", "rb", "rp", "rt", "rtc",  "s", "samp",
   "small", "span", "strong", "sub", "sup", "time", "u", "wbr", "caption",
-  "col", "colgroup", "table", "tbody", "td", "tfoot", "th", "thead", "tr, img"
+  "col", "colgroup", "table", "tbody", "td", "tfoot", "th", "thead", "tr", "img"
 ],
 disallowedTagsMode: 'discard',
 allowedAttributes: {
@@ -26,8 +26,8 @@ allowedAttributes: {
 // Lots of these won't come up by default because we don't allow them
 selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
 // URL schemes we permit
-allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'tel' ],
-allowedSchemesByTag: {img: ['data']},
+allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'tel','data' ],
+allowedSchemesByTag: {},
 allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
 allowProtocolRelative: true,
 enforceHtmlBoundary: false};
@@ -40,7 +40,7 @@ let id= req.params.id;
   console.log(req.params)
   loadArticle=find.searchArticle(id, "id");
   loadArticle.then((results)=>{
-cleanArticle= sanitizeHTML(results.article[0], cleanOptions)
+cleanArticle= sanitizeHTML(results.article[0], cleanOptions);
 
 res.render("article",{
   title:results.titles[0],
