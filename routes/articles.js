@@ -27,7 +27,7 @@ allowedAttributes: {
 selfClosing: [ 'img', 'br', 'hr', 'area', 'base', 'basefont', 'input', 'link', 'meta' ],
 // URL schemes we permit
 allowedSchemes: [ 'http', 'https', 'ftp', 'mailto', 'tel' ],
-allowedSchemesByTag: {},
+allowedSchemesByTag: {img: ['data']},
 allowedSchemesAppliedToAttributes: [ 'href', 'src', 'cite' ],
 allowProtocolRelative: true,
 enforceHtmlBoundary: false};
